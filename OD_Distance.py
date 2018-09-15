@@ -41,17 +41,16 @@ for x in range(OD_test.shape[0]):
                        transit_mode = 'bus')
            results.append(direct)
 
-x = dir[0]['legs'][0]['steps']
+x = results[0][0]['legs'][0]['steps']
 for idx, val in enumerate(x):
     print(val['html_instructions'],
           ', Duration (sec):',
           val['duration']['value'])
 
 x = dir[0]['legs'][0]['steps']
-
 directions = []
 for idx, val in enumerate(x):
-    direct = val['html_instructions']
+    direct = [val['html_instructions']]
     directions.append(direct)
 
 durations = []
