@@ -25,13 +25,19 @@ lat_long = {
         "lng" : '-93.393530'
         }
 
-        
+ 
 dest_lat_long = {
         "lat" : '44.979409', 
         "lng" : '-93.266648'
         }
 
 print(lat_long)
+
+dir = gmaps.directions(origin = OD_test['origin'][0],
+                       destination = OD_test['dest'][0],
+                       mode = 'transit',
+                       transit_mode = 'bus')
+
 
 results = []
 for x in range(OD_test.shape[0]):
@@ -41,20 +47,30 @@ for x in range(OD_test.shape[0]):
                        transit_mode = 'bus')
            results.append(direct)
 
-x = results[0][0]['legs'][0]['steps']
-for idx, val in enumerate(x):
-    print(val['html_instructions'],
-          ', Duration (sec):',
-          val['duration']['value'])
+results[1][0]['legs'][0]['steps'][2]['html_instructions']
 
-x = dir[0]['legs'][0]['steps']
-directions = []
-for idx, val in enumerate(x):
-    direct = [val['html_instructions']]
-    directions.append(direct)
 
-durations = []
-for idx, val in enumerate(x):
-    durat = val['duration']['value']
-    durations.append(durat)
+#for idx, val in enumerate(x):
+#    print(val['html_instructions'],
+#          ', Duration (sec):',
+#          val['duration']['value'])
 
+#x = dir[0]['legs'][0]['steps']
+
+res = []
+for idx, val in enumerate(results):
+    x = results[idx][0]['legs'][0]['steps']
+    res.append(x)
+
+p = []
+for idx, val in enumerate(res):
+    r = val
+    dat = []
+    for c, value in enumerate(r):
+        #d = value['duration']['value']
+        d = value['html_instructions']
+        dat.append(d)
+    p.append(dat)
+
+
+OD_test['Directions'] = [p[x] for x in range(OD_test.shape[0])]
