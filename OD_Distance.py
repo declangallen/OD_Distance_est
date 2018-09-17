@@ -102,11 +102,11 @@ for idx, val in enumerate(res):
     route.append(route_list)
 
 OD_test['Directions'] = [direction[x] for x in range(OD_test.shape[0])]
-OD_test['Durations'] = [duration[x] for x in range(OD_test.shape[0])]
+OD_test['Durations_sec'] = [duration[x] for x in range(OD_test.shape[0])]
 #OD_test['Bus_route'] = [route[x] for x in range(OD_test.shape[0])]
 OD_test['Final_Arrival'] = [arrival[x] for x in range(OD_test.shape[0])]
 OD_test['Initial_Departure'] = [departure[x] for x in range(OD_test.shape[0])]
-OD_test['Total_Duration_mins'] = [(datetime.strptime(OD_test['Final_Arrival'][x], '%H:%M%p') 
+OD_test['Total_Trip_Duration_mins'] = [(datetime.strptime(OD_test['Final_Arrival'][x], '%H:%M%p') 
 									  - datetime.strptime(OD_test['Initial_Departure'][x], '%H:%M%p'))
 									 .seconds/60 
 									 for x in range(OD_test.shape[0])]
@@ -126,6 +126,6 @@ t.name = 'Direction'
 t = t.reset_index().drop(['TCode'], axis = 1)
 merge = s.join(t)
 
-merge = merge.set_index('TCode').join(OD_test[['Name','Final_Arrival','Initial_Departure','Total_Duration']])
+merge = merge.set_index('TCode').join(OD_test[['Name','Final_Arrival','Initial_Departure','Total_Trip_Duration_mins']])
 
 merge.to_csv('OD_t.csv')
