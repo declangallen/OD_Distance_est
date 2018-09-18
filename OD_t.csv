@@ -1,8 +1,0 @@
-TCode,Duration,Direction,Name,Final_Arrival,Initial_Departure,Total_Duration
-T010,83.0,Walk to Como Ave & Eustis St,Como & Eustis,['7:31am'],['6:58am'],1650
-T010,780.0,Bus towards Westbound 3 Dwtn Mpls / Target Field,Como & Eustis,['7:31am'],['6:58am'],1650
-T010,113.0,Walk to Cedar Ave S & Washington Ave (15th Ave),Como & Eustis,['7:31am'],['6:58am'],1650
-T010,540.0,Bus towards Northbound 22C N Lyndale/Via Dupont-57/Brklyn Ctr T,Como & Eustis,['7:31am'],['6:58am'],1650
-T010,134.0,"Walk to S 2nd St, Minneapolis, MN 55402, USA",Como & Eustis,['7:31am'],['6:58am'],1650
-T028,21.0,Walk to Normandale Village & P&R,Normandale Village,['7:40am'],['7:00am'],2361
-T028,2340.0,Bus towards Northbound 589 Express / Minneapolis,Normandale Village,['7:40am'],['7:00am'],2361
