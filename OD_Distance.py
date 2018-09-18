@@ -11,11 +11,10 @@ cwd = os.getcwd()
 print(cwd)
 files = os.listdir(path)
 
-
+k = open('C:/Users/dgallen/Desktop/Python/k/New Text Document.txt','r').read()
 OD = pd.read_csv('pnr_xy_forGoogleAPI.csv')
 OD = OD.set_index('TCode')
-gmaps = googlemaps.Client('AIzaSyAUJWlx6XJQ5WLYsV2I2GbmHJFdHcmOQpk')
-
+gmaps = googlemaps.Client(k)
 
 OD['origin'] = [[OD['ox'][x],OD['oy'][x]] for x in range(OD.shape[0])]
 OD['dest'] = [[OD['dx'][x],OD['dy'][x]] for x in range(OD.shape[0])]
